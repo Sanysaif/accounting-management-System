@@ -1,0 +1,65 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="AccountingDB" Class="AccountingDataClassesDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=(LocalDB)\v11.0;AttachDbFilename=|DataDirectory|\AccountingDB.mdf;Integrated Security=True;Connect Timeout=30" SettingsObjectName="Accounting_Management_System.Properties.Settings" SettingsPropertyName="AccountingDBConnectionString1" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.Accounts" Member="Accounts">
+    <Type Name="Account">
+      <Column Name="acc_id" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="acc_hd" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="rept_hd" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="vchr_hd" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="bill_amnt" Type="System.Double" DbType="Float" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Transactions" Member="Transactions">
+    <Type Name="Transaction">
+      <Column Name="trans_id" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="trans_date" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="donor_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="rcvr_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="amount" Type="System.Double" DbType="Float" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Authentication" Member="Authentications">
+    <Type Name="Authentication">
+      <Column Name="username" Type="System.String" DbType="VarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="password" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Project" Member="Projects">
+    <Type Name="Project">
+      <Column Name="prjct_id" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="prjct_name" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="prjct_status" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="curr_amount" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="prjct_exp" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="rc_able" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="client" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="Client_Project" Member="Client1" ThisKey="client" OtherKey="client_id" Type="Client" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Client" Member="Clients">
+    <Type Name="Client">
+      <Column Name="client_id" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="clent_name" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="client_address" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="phone_no" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="mail" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="client_picture" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Association Name="Client_Project" Member="Projects" ThisKey="client_id" OtherKey="client" Type="Project" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Employee" Member="Employees">
+    <Type Name="Employee">
+      <Column Name="emp_id" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="emp_name" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="designation" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="joindate" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="basic_sal" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="receivable" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="address" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="phone_no" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="mail" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="emp_picture" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="dept_name" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+    </Type>
+  </Table>
+</Database>

@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="AccountingDB" Class="DataClasses1DataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=(LocalDB)\v11.0;AttachDbFilename=&quot;F:\Google Drive\Visual 2013\Projects\AccountingDB\AccountingDB\AccountingDB.mdf&quot;;Integrated Security=True;Connect Timeout=30" SettingsObjectName="Accounting_Management_System.Properties.Settings" SettingsPropertyName="AccountingDBConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.Accounting" Member="Accountings">
+    <Type Name="Accounting">
+      <Column Name="acc_id" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="acc_hd" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="rept_hd" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="vchr_hd" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="bill_amnt" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+</Database>
